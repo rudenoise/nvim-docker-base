@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM golang:1.9.4-alpine3.7
 
 RUN apk update && \
     apk upgrade && \
@@ -20,9 +20,9 @@ RUN apk update && \
 
 COPY ./bash/* /root/
 
-WORKDIR /root
-
-RUN ./vim.bash
+RUN cd /root && \
+    ./vim.bash && \
+    cp ~/code/vimrc/ftplugin/go.vim ~/.vim/ftplugin/
 
 
 #RUN ./vim.bash

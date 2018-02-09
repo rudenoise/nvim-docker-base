@@ -16,13 +16,13 @@ docker pull rudenoise/nvimage
 
 ```bash
 # get a shell
-docker run -ti rudenoise/nvimage /bin/bash
+docker run -ti rudenoise/nvimage:go1.9.4-alpine3.7 /bin/bash
 
 # build local
-docker build -t nvimage:alpine .
+docker build -t nvimage:go1.9.4-alpine3.7 .
 
 # run
-docker run -ti nvimage:alpine /bin/bash
+docker run -ti nvimage:go1.9.4-alpine3.7 /bin/bash
 
 # tidy up
 docker system prune
