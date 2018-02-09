@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: build
+          command: docker build -t vimage:local .
       - run:
-          name: Print the Current Time
-          command: date
+          name: run_local
+          command: docker run vimage:local
 
