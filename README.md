@@ -9,7 +9,7 @@ local development environment.
 [Pull nvimage  from Docker Hub](https://hub.docker.com/r/rudenoise/nvimage/)
 
 ```bash
-docker pull rudenoise/nvimage
+docker pull rudenoise/nvimage:go1.9.4-alpine3.7
 ```
 
 ## Notes:
