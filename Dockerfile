@@ -9,6 +9,7 @@ RUN apk update && \
         curl \
         wget \
         bind-tools \
+        tree \
         python3 && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \

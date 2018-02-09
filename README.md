@@ -15,6 +15,9 @@ docker pull rudenoise/nvimage
 ## Notes:
 
 ```bash
+# get a shell
+docker run -ti rudenoise/nvimage /bin/bash
+
 # build local
 docker build -t nvimage:alpine .
 
