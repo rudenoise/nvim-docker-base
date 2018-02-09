@@ -16,10 +16,10 @@ docker pull rudenoise/nvimage
 
 ```bash
 # build local
-docker build -t vimage:local .
+docker build -t nvimage:local .
 
 # run
-docker run -ti vimage:local /bin/bash
+docker run -ti nvimage:local /bin/bash
 
 # tidy up
 docker system prune
