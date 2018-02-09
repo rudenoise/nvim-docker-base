@@ -1,25 +1,17 @@
-FROM ubuntu:17.10
+FROM alpine:3.7
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y software-properties-common python-software-properties && \
-    add-apt-repository ppa:neovim-ppa/stable && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-        software-properties-common \
-        neovim \
-        python-dev python-pip \
-        python3-dev python3-pip \
-        curl git wget tree dnsutils
+RUN apk add --update --no-cache \
+    neovim \
+    python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+    rm -r /root/.cache
 
-RUN update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60 && \
-    update-alternatives --config vim && \
-    update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60 && \
-    update-alternatives --config editor
+#COPY ./bash/vim.bash /root/vim.bash
 
-COPY ./bash/vim.bash /root/vim.bash
+#WORKDIR /root
 
-WORKDIR /root
-
-RUN ./vim.bash
+#RUN ./vim.bash
